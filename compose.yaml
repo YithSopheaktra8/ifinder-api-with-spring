@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  ifinder:
+    container_name: 'ifinder_api'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - TZ=Asia/Bangkok
+    ports:
+      - '3113:8080'   #follow you port
+    volumes:
+      - '/home/pheaktra/spring-ifinder-deploy/media_backup:/app/home/pheaktra/spring-ifinder-deploy/media/IMAGE/' #follow your path

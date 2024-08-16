@@ -1,0 +1,75 @@
+    plugins {
+        id 'java'
+        id 'org.springframework.boot' version '3.2.5'
+        id 'io.spring.dependency-management' version '1.1.4'
+    }
+
+    group = 'co.istad'
+    version = '0.0.1-SNAPSHOT'
+
+    java {
+        sourceCompatibility = '21'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+
+        implementation 'com.google.cloud:google-cloud-translate:2.6.0'
+
+        implementation "io.netty:netty-resolver-dns-native-macos:4.1.72.Final:osx-aarch_64"
+
+
+        implementation 'com.google.apis:google-api-services-customsearch:v1-rev86-1.25.0'
+
+        // swagger ui
+        implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.4.0'
+
+        // youtube api dependencies
+        implementation 'com.google.api-client:google-api-client:1.32.1'
+        implementation 'com.google.apis:google-api-services-youtube:v3-rev222-1.25.0'
+        implementation 'com.google.http-client:google-http-client-jackson2:1.39.0'
+
+        // jackson dependencies for parse json to object
+        implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.1'
+        implementation 'com.fasterxml.jackson.core:jackson-core:2.17.1'
+        implementation 'com.fasterxml.jackson.core:jackson-annotations:2.17.1'
+
+        // jsoup HTML parser library @ https://jsoup.org/
+        implementation 'org.jsoup:jsoup:1.17.2'
+        implementation 'org.typesense:typesense-java:0.5.0'
+        implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+        implementation 'org.springframework.boot:spring-boot-starter-webflux'
+        testImplementation 'io.projectreactor:reactor-test'
+
+        compileOnly 'org.mapstruct:mapstruct:1.5.5.Final'
+        annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+        annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+
+        runtimeOnly 'org.postgresql:postgresql'
+
+        // for spring security
+        implementation 'org.springframework.boot:spring-boot-starter-security'
+        implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+
+        // for swagger ui
+        implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.4.0'
+
+        //java mail sender
+        implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-validation'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
